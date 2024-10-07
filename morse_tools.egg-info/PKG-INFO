@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: morse-tools
+Version: 0.2
+Summary: Various tools for working with morse code
+Author: ShackledMars261
+Requires-Dist: argparse>=1.4.0
+Requires-Dist: numpy>=1.26.4

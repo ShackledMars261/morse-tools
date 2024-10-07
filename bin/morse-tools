@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+
+import wav2morse
+import argparse
+
+parent_parser = argparse.ArgumentParser(description="Various tools for working with morse code")
+
+subparsers = parent_parser.add_subparsers(title="actions")
+subparsers.required = True
+subparsers.dest = "action"
+
+parser_wav2morse = subparsers.add_parser("wav-to-morse", description="Convert a .wav file to morse code", help="Convert a .wav file to morse code")
+parser_wav2morse.add_argument("wav_file", help="The path to the wav file")
+
+parser_wav2text = subparsers.add_parser("wav-to-text", description="Convert a .wav file to text", help="Convert a .wav file to text")
+parser_wav2text.add_argument("-l", help="Output the text in lowercase", action="store_true")
+parser_wav2text.add_argument("wav_file", help="The path to the wav file")
+
+parser_morse2text = subparsers.add_parser("morse-to-text", description="Convert morse code to text", help="Convert morse code to text")
+parser_morse2text.add_argument("-l", help="Output the text in lowercase", action="store_true")
+parser_morse2text.add_argument("morse_code", help="The morse code to convert to text")
+
+parser_text2morse = subparsers.add_parser("text-to-morse", description="Convert text to morse code", help="Convert text to morse code")
+parser_text2morse.add_argument("text", help="The text to convert to morse code")
+
+args = parent_parser.parse_args()
+
+if args.action == "wav-to-morse":
+    print(wav2morse.wav2morse(args.wav_file, morse_output=True))
+elif args.action == "wav-to-text":
+    print(wav2morse.wav2morse(args.wav_file, morse_output=False, lowercase=args.l))
+elif args.action == "morse-to-text":
+    print(wav2morse.morse2text(args.morse_code, lowercase=args.l))
+elif args.action == "text-to-morse":
+    print(wav2morse.text2morse(args.text))
+else:
+    print("Invalid action")

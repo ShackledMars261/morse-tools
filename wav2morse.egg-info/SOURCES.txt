@@ -1,0 +1,7 @@
+pyproject.toml
+setup.py
+bin/morse-tools
+wav2morse.egg-info/PKG-INFO
+wav2morse.egg-info/SOURCES.txt
+wav2morse.egg-info/dependency_links.txt
+wav2morse.egg-info/top_level.txt
