@@ -2,11 +2,13 @@
 
 import wav2morse
 import argparse
+from importlib.metadata import version
 
 parent_parser = argparse.ArgumentParser(description="Various tools for working with morse code")
+parent_parser.add_argument("-v", "--version", help="print the version", action="store_true")
 
 subparsers = parent_parser.add_subparsers(title="actions")
-subparsers.required = True
+subparsers.required = False
 subparsers.dest = "action"
 
 parser_wav2morse = subparsers.add_parser("wav-to-morse", description="Convert a .wav file to morse code", help="Convert a .wav file to morse code")
@@ -33,5 +35,7 @@ elif args.action == "morse-to-text":
     print(wav2morse.morse2text(args.morse_code, lowercase=args.l))
 elif args.action == "text-to-morse":
     print(wav2morse.text2morse(args.text))
+elif args.version == True:
+    print(f"Morse-Tools {version('morse-tools')}")
 else:
-    print("Invalid action")
+    print("Please specify an action to perform")
