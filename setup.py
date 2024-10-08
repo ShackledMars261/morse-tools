@@ -4,7 +4,7 @@ setup(
     name="morse-tools",
     py_modules=["wav2morse"],
     scripts=['bin/morse-tools'],
-    version="1.0.2",
+    version="1.0.3",
     description="Various tools for working with morse code",
     author="ShackledMars261",
 )
