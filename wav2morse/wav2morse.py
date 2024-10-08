@@ -202,3 +202,6 @@ def text2morse(text):
     for word in words:
         final_string += word + "/ "
     return final_string[0:-2]
+
+if __name__ == "__main__":
+    print("This script is not meant to be run directly. Please use the morse-tools command line utility instead.")
